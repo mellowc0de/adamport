@@ -1,0 +1,95 @@
+{% extends 'knowledgebase/kb_base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+.tab {display:none;}
+</style>
+<body>
+
+  <div class="header">
+    <h1>Knowledgebase</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-3 menu">
+      <ul>
+        <li class="tablink" onclick="openTab(event, 'Documents')">Documentations</li>
+        <li class="tablink" onclick="openTab(event, 'Tutorials')">Tutorials</li>
+        <li class="tablink" onclick="openTab(event, 'Resources')">Resources</li>
+      </ul>
+    </div>
+
+    <div id="Documents" class="tab w3-animate-left">
+      <div class="col-6">
+        <h1 class="w3-xxxlarge w3-text-white">Documentations</h1>
+        <p class="w3-text-white">KB Document Panel [Under Construction]</p>
+      </div>
+
+      <div class="col-3 right">
+        <div class="aside">
+          <h2>Documentation Tags</h2>
+          <p>Python</p>
+          <p>Java</p>
+          <p>Postgre</p>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div id="Tutorials" class="tab w3-animate-left">
+      <div class="col-6">
+        <h1 class="w3-xxxlarge w3-text-white">Tutorials</h1>
+        <p class="w3-text-white">KB Tutorials Panel [Under Construction]</p>
+      </div>
+
+      <div class="col-3 right">
+        <div class="aside">
+          <h2>Tutorial Tags</h2>
+          <p>Python</p>
+          <p>Java</p>
+          <p>Postgre</p>
+        </div>
+      </div>
+    </div>
+  
+    
+    <div id="Resources" class="tab w3-animate-left">
+      <div class="col-6">
+        <h1 class="w3-xxxlarge w3-text-white">Resources</h1>
+        <p class="w3-text-white">KB Resources Panel [Under Construction]</p>
+      </div>
+
+      <div class="col-3 right">
+        <div class="aside">
+          <h2>Official Resources</h2>
+          <p><a href="https://www.python.org/">Python</a></p>
+          <p><a href="https://pypi.org/">Python Packaging Index</a></p>
+          <p>Postgre</p>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+
+
+
+<script>
+function openTab(evt, tabName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("tab");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+</script>
+</body>
+{% endblock %}
+

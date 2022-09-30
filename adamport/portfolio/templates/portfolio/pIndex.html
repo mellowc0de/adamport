@@ -1,0 +1,187 @@
+{% extends 'landing/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<head>
+<title>Adam R. Alcala - Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+</head>
+
+
+<body class="bg-dark">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+    
+      <div class="w3-black w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+          <img src="{% static 'dist/images/weddingpicture.jpeg' %}" style="width:100%" alt="Avatar">
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+            <h2>Adam R. Alcala</h2>
+          </div>
+        </div>
+        <div class="w3-container">
+          <br/>
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Python Developer</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Central Valley, CA</p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>mellohcode@gmail.com</p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>Phone #</p>
+          <hr>
+
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+          <p>Python</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
+          </div>
+          <p>Photoshop</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
+              <div class="w3-center w3-text-white">80%</div>
+            </div>
+          </div>
+          <p>Illustrator</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
+          </div>
+          <p>Media</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
+          </div>
+          <br>
+
+          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+          <p>English</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"><center>100%</center></div>
+          </div>
+          <br>
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+    
+      <div class="w3-container w3-card w3-black w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+        {% for exp in experience %}
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>{{ exp.position}} / {{ exp.company }}</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ exp.start_date }} - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+          <p>{{ exp.description|safe }}</p>
+          <hr>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="w3-container w3-card w3-black">
+        <h2 class="w3-text-grey w3-padding-16">
+          <i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Certificates
+        </h2>
+        <div class="w3-container">
+
+          <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              
+            </div>
+            
+			<div class="carousel-inner h-25">
+              {% for cert in certs %}
+                {% if forloop.first %}
+                  <div class="carousel-item active" data-bs-interval="10000">
+                {% else %}
+                  <div class="carousel-item" data-bs-interval="2000">
+                {% endif %}
+                    <img src="{{cert.image.url}}" class="" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5 class="w3-opacity {% if forloop.revcounter0 == 0 %} animate_fadeInDown {% endif %}
+                      {% if forloop.revcounter == 1 %} animate_zoomIn {% endif %}
+                      {% if forloop.revcounter == 2 %} animate_slideInDown {% endif %}">{{ cert.course_name }}</h5>
+                      <div class="d-flex justify-content-between">
+                        <p class="w3-text-teal">Certificate ID: {{ cert.cert_id }}</p>
+                        <p class="w3-text-teal">{{ cert.date_issued }}</p>
+                        <p class="w3-text-teal">{{ cert.course_code }}</p>
+                      </div>
+
+                    </div>
+                  </div>
+              {% endfor %}
+              
+			  
+            </div>
+            
+            
+            
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+
+          <hr>
+        </div>
+      </div>
+      
+      
+      <!-- EDUCATION SECTION -->
+      <div class="w3-container w3-card w3-black">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Purdue University Global</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2021 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+          <p>Bachelor Degree in Analytics</p>
+          <hr>
+        </div>
+      </div>
+      <!-- END EDUCATION SECTION -->
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+
+<!-- Footer Container
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+  <p>Find me on social media.</p>
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+-->
+
+</body>
+
+{% endblock %}

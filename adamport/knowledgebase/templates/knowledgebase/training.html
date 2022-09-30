@@ -1,0 +1,61 @@
+{% extends 'landing/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main>
+    <div class="container-fluid">
+        <center>
+        <div class="p-5 mb-4 bg-light rounded-3 shadow">
+            <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold text-dark">Training</h1>
+            <p class="col-md-8 fs-4">Tutorials / Documents / Guides</p>
+            <br/>
+            <form class="col-lg-8 col-sm-10 mb-3 mb-lg-0" role="search">
+                <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+            </form>
+            </div>
+        </div>
+        </center> 
+  
+        <div class="row d-flex justify-content-evenly">
+            <div class="col-lg-3 col-sm-4 m-0 p-0 card shadow">
+                <div class="card-header">
+                Training
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                    {% for cat in categories %}    
+                        <tr>
+                            <td><a class="postlink" href="#">{{cat.tutorial_category}}</a></td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+            </div>
+        
+            <div class="col-lg-5 col-sm-4 m-0 p-0 card shadow">
+                <div class="card-header">
+                New KnowledgeBase Additions
+                </div>
+                <div class="card-body">
+
+                </div>
+            </div>
+        
+            <div class="col-lg-3 col-sm-4 m-0 p-0 card shadow">
+                <div class="card-header">
+                    <a class="postlink" href="{% url 'categories' %}">Categories</a>
+                </div>
+                <div class="card-body">
+
+                </div>
+            </div>
+        </div>
+  
+      
+    </div>
+</main>
+
+
+{% endblock content %}
