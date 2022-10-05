@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landing.urls')),
-    path('KnowledgeBase/', include('knowledgebase.urls')),
+    path('KB/', include('knowledgebase.urls')),
     path('portfolio/', include('portfolio.urls')),
     path('tinymce/', include('tinymce.urls')),
 ]

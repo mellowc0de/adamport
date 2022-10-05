@@ -110,15 +110,17 @@ body {margin:0;font-family:Arial}
 <body>
 
     <div class="topnav w3-padding" id="myTopnav">
-      <a href="{% url 'portfolio' %}">Portfolio</a>
+      <a href="/">
+        <img class="header-logo-image" width="32" height="34" src="{% static 'dist/images/alcawyz_logo.png' %}" alt="Logo">
+      </a>
+      <a href="{% url 'index' %}">Home</a>
       <div class="dropdown">
-        <button class="dropbtn">KB 
+        <button class="dropbtn">Nav 
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-          <a href="{% url 'kb_index' %}">Home</a>
-          <a href="#">Documentation</a>
-          <a href="#">Tutorials</a>
+          <a href="{% url 'kb_index' %}">KB</a>
+          <a href="{% url 'portfolio' %}">Portfolio</a>
         </div>
       </div> 
       <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>

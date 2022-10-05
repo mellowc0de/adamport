@@ -22,8 +22,10 @@
 
     <div id="Documents" class="tab w3-animate-left">
       <div class="col-6">
-        <h1 class="w3-xxxlarge w3-text-white">Documentations</h1>
-        <p class="w3-text-white">KB Document Panel [Under Construction]</p>
+        <h1 class="w3-xxxlarge w3-text-white w3-black w3-padding">Documentations</h1>
+        <div class="w3-black w3-card w3-padding">
+          <p class="w3-text-white">KB Document Panel [Under Construction]</p>
+        </div>
       </div>
 
       <div class="col-3 right">
@@ -39,8 +41,12 @@
     
     <div id="Tutorials" class="tab w3-animate-left">
       <div class="col-6">
-        <h1 class="w3-xxxlarge w3-text-white">Tutorials</h1>
-        <p class="w3-text-white">KB Tutorials Panel [Under Construction]</p>
+        <h1 class="w3-xxxlarge w3-text-white w3-black w3-padding">Tutorials</h1>
+        <div class="w3-black w3-card w3-padding">
+        {% for cat in categories %}
+          <p class="w3-text-white">{{cat.tutorial_category}}</p>
+        {% endfor %}
+        </div>
       </div>
 
       <div class="col-3 right">
@@ -56,8 +62,10 @@
     
     <div id="Resources" class="tab w3-animate-left">
       <div class="col-6">
-        <h1 class="w3-xxxlarge w3-text-white">Resources</h1>
-        <p class="w3-text-white">KB Resources Panel [Under Construction]</p>
+        <h1 class="w3-xxxlarge w3-text-white w3-black w3-padding">Resources</h1>
+        <div class="w3-black w3-card w3-padding">
+          <p class="w3-text-white">KB Resources Panel [Under Construction]</p>
+        </div>
       </div>
 
       <div class="col-3 right">
