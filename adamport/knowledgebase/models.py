@@ -42,3 +42,16 @@ class Tutorial(models.Model):
     
     def __str__(self):
         return self.tutorial_title
+        
+
+class Documents(models.Model):
+    document_title = models.CharField(max_length=200)
+    document_content = models.TextField()
+    document_published = models.DateTimeField('date published')
+    
+    class Meta:
+        # Gives the proper plural name for admin
+        verbose_name_plural = "Documents"
+    
+    def __str__(self):
+        return self.document_title

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import View
-from .models import TutorialCategory, TutorialSeries, Tutorial
+from .models import TutorialCategory, TutorialSeries, Tutorial, Documents
 
 
 def single_slug(request, single_slug):
@@ -34,7 +34,9 @@ def single_slug(request, single_slug):
 def kbIndex(request):
     return render(request=request,
         template_name="knowledgebase/kb_index.html",
-        context={"categories": TutorialCategory.objects.all})
+        context={"categories": TutorialCategory.objects.all,
+                 "documents":Documents.objects.all,
+                })
 
 def categories(request):
     return render(request=request,

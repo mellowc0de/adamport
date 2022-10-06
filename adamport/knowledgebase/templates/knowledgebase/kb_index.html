@@ -1,4 +1,4 @@
-{% extends 'knowledgebase/kb_base.html' %}
+{% extends 'knowledgebase/partials/kb_base.html' %}
 {% load static %}
 
 {% block content %}
@@ -24,7 +24,22 @@
       <div class="col-6">
         <h1 class="w3-xxxlarge w3-text-white w3-black w3-padding">Documentations</h1>
         <div class="w3-black w3-card w3-padding">
-          <p class="w3-text-white">KB Document Panel [Under Construction]</p>
+        {% for doc in documents %}
+
+          <div class="w3-card-4 w3-border-left w3-border-white">
+
+            <header class="w3-container w3-teal w3-round-large">
+              <h4>{{ doc.document_title }}</h4>
+            </header>
+
+            <div class="w3-container w3-white w3-round-large">
+              <p>{{ doc.document_content }}</p>
+            </div>
+
+
+          </div>
+          <br/>
+        {% endfor %}
         </div>
       </div>
 

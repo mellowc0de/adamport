@@ -1,7 +1,7 @@
 {% load static %}
 
 <head>
-	<title>KnowledgeBase</title>
+	<title>ARA - KnowledgeBase</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -16,13 +16,14 @@
 
 <body>
 
-{% include 'knowledgebase/kb_navbar.html' %}
+{% include 'knowledgebase/partials/kb_navbar.html' %}
+
 
 {% block content %}
 
 {% endblock %}
 
-{% include 'knowledgebase/kb_footer.html' %}
+{% include 'knowledgebase/partials/kb_footer.html' %}
 
 </body>
 
