@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
+from django.views import generic
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 from django.views import View
 from .models import TutorialCategory, TutorialSeries, Tutorial, Documents
 
@@ -43,3 +45,25 @@ def categories(request):
         template_name="knowledgebase/categories.html",
         context={"categories": TutorialCategory.objects.all})
     
+
+#class DocumentsDetailView(generic.DetailView):
+#    model = Documents
+#    template_name = 'knowledgebase/document_detail.html'
+    
+#def document_detail_view(request, primary_key):
+#    document = get_object_or_404(Documents, pk=primary_key)
+#    context = {
+#        'document': document,
+#    }
+#    return render(request, 'knowledgebase/document_detail.html', context)
+    
+
+class document_detail_view(View):
+    def get(self, request, *args, **kwargs):
+        document = get_object_or_404(Documents, pk=kwargs['pk'])
+        context = {
+            'document': document
+        }
+        return render(request, 'knowledgebase/document_detail.html', context)
+
+

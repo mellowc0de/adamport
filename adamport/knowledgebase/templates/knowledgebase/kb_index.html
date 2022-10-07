@@ -27,15 +27,14 @@
         {% for doc in documents %}
 
           <div class="w3-card-4 w3-border-left w3-border-white">
-
-            <header class="w3-container w3-teal w3-round-large">
-              <h4>{{ doc.document_title }}</h4>
-            </header>
-
-            <div class="w3-container w3-white w3-round-large">
-              <p>{{ doc.document_content }}</p>
-            </div>
-
+            <a class="postlink" href="{% url 'document-detail' doc.pk %}">
+              <header class="w3-container w3-teal w3-round-large">
+                <h4 class="postlink">{{ doc.document_title }}</h4>
+              </header>
+            </a>
+              <div class="w3-container w3-white w3-round-large">
+                <p>{{ doc.document_content }}</p>
+              </div>
 
           </div>
           <br/>

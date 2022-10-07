@@ -86,3 +86,6 @@ body {
   .col-12 {width: 100%;}
 }
 
+.postlink {
+  text-decoration: none;
+}

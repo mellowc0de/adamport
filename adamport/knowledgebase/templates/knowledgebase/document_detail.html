@@ -1,0 +1,22 @@
+{% extends 'knowledgebase/partials/kb_base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="w3-row w3-margin">
+  <div class="w3-col m3 w3-center"><p>m3</p></div>
+  <!-- Middle Section -->
+  <div class="w3-col m6 w3-center">
+    <div class="w3-black w3-card w3-padding w3-border w3-border-teal w3-center">
+        <h1>{{ document.document_title }}</h1>
+    </div>
+    <br/>
+    <div class="w3-black w3-card w3-padding">
+        <p>{{ document.document_content }}</p>
+    </div>
+  </div>
+  <!-- End of Middle Section -->
+  <div class="w3-col m3 w3-center"><p>m3</p></div>
+  
+</div>
+{% endblock %}

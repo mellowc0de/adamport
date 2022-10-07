@@ -49,9 +49,10 @@ class Documents(models.Model):
     document_content = models.TextField()
     document_published = models.DateTimeField('date published')
     
-    class Meta:
-        # Gives the proper plural name for admin
-        verbose_name_plural = "Documents"
     
     def __str__(self):
         return self.document_title
+    
+    class Meta:
+        # Gives the proper plural name for admin
+        verbose_name_plural = "Documents"
