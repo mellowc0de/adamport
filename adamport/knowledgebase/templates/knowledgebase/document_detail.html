@@ -2,9 +2,14 @@
 {% load static %}
 
 {% block content %}
-
+<br />
+<br />
 <div class="w3-row w3-margin">
-  <div class="w3-col m3 w3-center"><p>m3</p></div>
+  <div class="w3-col m3 w3-center w3-margin">
+    <a class="postlink" href="{% url 'kb_index' %}">
+      <button class="w3-button w3-circle w3-teal"><i class="fa fa-arrow-left"></i></button>
+    </a>
+  </div>
   <!-- Middle Section -->
   <div class="w3-col m6 w3-center">
     <div class="w3-black w3-card w3-padding w3-border w3-border-teal w3-center">
@@ -12,11 +17,20 @@
     </div>
     <br/>
     <div class="w3-black w3-card w3-padding">
-        <p>{{ document.document_content }}</p>
+        <p>{{ document.document_content|safe }}</p>
+    </div>
+    <br/>
+    <div class="w3-black w3-card w3-padding">
+        <p>{{ document.document_article|safe }}</p>
     </div>
   </div>
   <!-- End of Middle Section -->
-  <div class="w3-col m3 w3-center"><p>m3</p></div>
-  
+  <div class="w3-col m3 w3-center"></div>
+
 </div>
+<br />
+<br />
+<br />
+<br />
+
 {% endblock %}

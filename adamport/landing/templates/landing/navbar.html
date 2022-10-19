@@ -5,7 +5,7 @@
 
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark w3-black" aria-label="Fourth navbar example">
-          <div class="container">
+          <div class="container-fluid">
             
                 <img class="header-logo-image" width="32" height="34" src="{% static 'dist/images/alcawyz_logo.png' %}" alt="Logo">
          
@@ -16,17 +16,12 @@
 
             <div class="collapse navbar-collapse" id="navbarsExample04">
               <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'portfolio' %}" style="font-family:Optima;">Portfolio</a>
-                </li>
-                
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="{% url 'kb_index' %}" style="font-family:Optima;" data-bs-toggle="dropdown" aria-expanded="false">KnowledgeBase</a>
+                  <a class="nav-link dropdown-toggle" href="{% url 'kb_index' %}" style="font-family:Optima;" data-bs-toggle="dropdown" aria-expanded="false">Directory</a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'kb_index' %}" style="font-family:Optima;">KB Home</a></li>
-                    <li><a class="dropdown-item" href="#" style="font-family:Optima;">Tutorials</a></li>
-                    <li><a class="dropdown-item" href="#" style="font-family:Optima;">Documentation</a></li>
-                    <li><a class="dropdown-item" href="#" style="font-family:Optima;">Resources</a></li>
+                    <li><a class="dropdown-item" href="/" style="font-family:Optima;">Home</a></li>
+                    <li><a class="dropdown-item" href="{% url 'kb_index' %}" style="font-family:Optima;">KB</a></li>
+                    <li><a class="dropdown-item" href="{% url 'portfolio' %}" style="font-family:Optima;">Portfolio</a></li>
                   </ul>
                 </li>
               </ul>

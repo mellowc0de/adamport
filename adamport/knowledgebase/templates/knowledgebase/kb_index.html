@@ -6,7 +6,9 @@
 .tab {display:none;}
 </style>
 <body>
-
+  <br />
+  <br />
+  <br />
   <div class="header">
     <h1>Knowledgebase</h1>
   </div>
@@ -33,7 +35,7 @@
               </header>
             </a>
               <div class="w3-container w3-white w3-round-large">
-                <p>{{ doc.document_content }}</p>
+                <p>{{ doc.document_content|safe }}</p>
               </div>
 
           </div>
@@ -92,10 +94,12 @@
       </div>
     </div>
     
-    
+
   </div>
-
-
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 
 <script>
 function openTab(evt, tabName) {

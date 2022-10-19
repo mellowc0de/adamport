@@ -3,6 +3,7 @@ from django.template.defaultfilters import slugify
 from django.utils import timezone
 from uuid import uuid4
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
         
         
 # Tutorial Models
@@ -47,6 +48,7 @@ class Tutorial(models.Model):
 class Documents(models.Model):
     document_title = models.CharField(max_length=200)
     document_content = models.TextField()
+    document_article = RichTextField()
     document_published = models.DateTimeField('date published')
     
     

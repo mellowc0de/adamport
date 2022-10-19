@@ -24,6 +24,7 @@ urlpatterns = [
     path('KB/', include('knowledgebase.urls')),
     path('portfolio/', include('portfolio.urls')),
     path('tinymce/', include('tinymce.urls')),
+    path('djrichtextfield/', include('djrichtextfield.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 #if settings.DEBUG:
