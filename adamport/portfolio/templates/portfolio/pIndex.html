@@ -38,7 +38,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         <div class="w3-container">
           <br/>
           <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Python Developer</p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Central Valley, CA</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>California</p>
           <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>mellohcode@gmail.com</p>
           <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>Phone #</p>
           <hr>
@@ -97,51 +97,22 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         </h2>
         <div class="w3-container">
 
-          <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-              
-              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              
-              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              
-            </div>
-            
-			<div class="carousel-inner h-25">
-              {% for cert in certs %}
-                {% if forloop.first %}
-                  <div class="carousel-item active" data-bs-interval="10000">
-                {% else %}
-                  <div class="carousel-item" data-bs-interval="2000">
-                {% endif %}
-                    <img src="{{cert.image.url}}" class="" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5 class="w3-opacity {% if forloop.revcounter0 == 0 %} animate_fadeInDown {% endif %}
-                      {% if forloop.revcounter == 1 %} animate_zoomIn {% endif %}
-                      {% if forloop.revcounter == 2 %} animate_slideInDown {% endif %}">{{ cert.course_name }}</h5>
-                      <div class="d-flex justify-content-between">
-                        <p class="w3-text-teal">Certificate ID: {{ cert.cert_id }}</p>
-                        <p class="w3-text-teal">{{ cert.date_issued }}</p>
-                        <p class="w3-text-teal">{{ cert.course_code }}</p>
-                      </div>
-
-                    </div>
-                  </div>
-              {% endfor %}
-              
-			  
-            </div>
-            
-            
-            
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
+          <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable">
+            <thead>
+              <tr class="w3-light-grey">
+                <th>Course Code</th>
+                <th>Course Name</th>
+                <th>Date Issued</th>
+              </tr>
+            </thead>
+            {% for cert in certs %}
+            <tr>
+              <td>{{ cert.course_code }}</td>
+              <td>{{ cert.course_name }}</td>
+              <td>{{ cert.date_issued }}</td>
+            </tr>
+            {% endfor %}
+          </table>
 
 
           <hr>
