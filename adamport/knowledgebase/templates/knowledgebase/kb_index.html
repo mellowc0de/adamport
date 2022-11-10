@@ -1,6 +1,6 @@
 {% extends 'knowledgebase/partials/kb_base.html' %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 <style>
 .tab {display:none;}
@@ -10,7 +10,7 @@
   <br />
   <br />
   <div class="header">
-    <h1>Knowledgebase</h1>
+    <h1 class="w3-animate-left">Knowledgebase</h1>
   </div>
 
   <div class="row">
@@ -22,6 +22,9 @@
       </ul>
     </div>
 
+    <!--
+      Documents Tab Panel
+    -->
     <div id="Documents" class="tab w3-animate-left">
       <div class="col-6">
         <h1 class="w3-xxxlarge w3-text-white w3-black w3-padding">Documentations</h1>
@@ -46,15 +49,38 @@
 
       <div class="col-3 right">
         <div class="aside">
-          <h2>Documentation Tags</h2>
-          <p>Python</p>
-          <p>Java</p>
+          <h2>Documentation Links</h2>
+          
+          <button onclick="document.getElementById('id01').style.display='block'" class="w3-btn w3-black w3-round">Create</button>
+          <div id="id01" class="w3-modal">
+            <div class="w3-modal-content w3-card-4">
+              <header class="w3-container w3-teal"> 
+                <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                <h2>Add New Document</h2>
+              </header>
+              <div class="w3-container">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                </form>
+
+              </div>
+                <footer class="w3-container w3-teal w3-padding">
+                  <button type="button" class="w3-btn w3-gray w3-round" data-bs-dismiss="modal">Close</button>
+                  <button class="w3-btn w3-black w3-round">Submit</button>
+                </footer>
+            </div>
+          </div>
+
+          <p>View List</p>
           <p>Postgre</p>
         </div>
       </div>
     </div>
     
-    
+    <!--
+      Tutorials Tab Panel
+    -->
     <div id="Tutorials" class="tab w3-animate-left">
       <div class="col-6">
         <h1 class="w3-xxxlarge w3-text-white w3-black w3-padding">Tutorials</h1>
@@ -75,7 +101,9 @@
       </div>
     </div>
   
-    
+    <!--
+      Resources Tab Panel
+    -->
     <div id="Resources" class="tab w3-animate-left">
       <div class="col-6">
         <h1 class="w3-xxxlarge w3-text-white w3-black w3-padding">Resources</h1>

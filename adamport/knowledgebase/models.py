@@ -7,7 +7,7 @@ from ckeditor.fields import RichTextField
         
         
 # Tutorial Models
-# 
+# Parent Class - TutorialCategory
 class TutorialCategory(models.Model):
     
     tutorial_category = models.CharField(max_length=200)
@@ -20,7 +20,9 @@ class TutorialCategory(models.Model):
 
     def __str__(self):
         return self.tutorial_category
-    
+
+# Tutorial Models
+# Child Class - TutorialSeries
 class TutorialSeries(models.Model):
     tutorial_series = models.CharField(max_length=200)
 
@@ -33,7 +35,9 @@ class TutorialSeries(models.Model):
 
     def __str__(self):
         return self.tutorial_series
-    
+
+# Tutorial Models
+# Child Sub-Class - TutorialSeries
 class Tutorial(models.Model):
     tutorial_title = models.CharField(max_length=200)
     tutorial_content = models.TextField()
@@ -44,7 +48,8 @@ class Tutorial(models.Model):
     def __str__(self):
         return self.tutorial_title
         
-
+# Documents Model
+# 
 class Documents(models.Model):
     document_title = models.CharField(max_length=200)
     document_content = models.TextField()

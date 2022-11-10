@@ -31,6 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'django_filters',
     'djrichtextfield',
     'tinymce',
@@ -226,3 +228,9 @@ DJRICHTEXTFIELD_CONFIG = {
         'width': 700
     }
 }
+
+# Crispy Forms Settings
+#
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
